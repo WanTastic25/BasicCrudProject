@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Create User";
+}
+
+@model BasicCrudProject.Models.AddUserViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Create User</h1>
+</div>
+
+<form asp-action="CreateUser" asp-controller="Users" method="post">
+    <label class="mt-4">Name</label>
+    <input class="form-control" type="text" asp-for="Name"/>
+    <label class="mt-4">Email</label>
+    <input class="form-control" type="text" asp-for="Email"/>
+    <label class="mt-4">Role</label>
+    <select class="form-select" asp-for="Role">
+        <option value="">Select Role</option>
+        <option value="basic">Basic</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+    <button class="btn btn-secondary mt-4" type="reset">Reset</button>
+</form>

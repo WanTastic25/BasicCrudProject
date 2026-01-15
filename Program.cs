@@ -1,3 +1,6 @@
+using BasicCrudProject.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace BasicCrudProject
 {
     public class Program
@@ -8,6 +11,8 @@ namespace BasicCrudProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("UserPortal")));
 
             var app = builder.Build();
 

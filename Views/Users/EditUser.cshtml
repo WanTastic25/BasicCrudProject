@@ -1,0 +1,44 @@
+﻿@{
+	ViewData["Title"] = "Edit User";
+}
+
+@model BasicCrudProject.Models.Entities.User
+
+<div class="text-center">
+	<h1 class="display-4">Edit User</h1>
+</div>
+
+@if (Model is null)
+{
+	<p>User Not Found or ID Invalid</p>
+}
+else
+{
+	<form asp-action="EditUser" asp-controller="Users" method="post">
+		<label class="mt-4">ID</label>
+		<input class="form-control" type="text" asp-for="Id" readonly />
+		<input type="hidden" asp-for="Id" />
+
+		<label class="mt-4">Name</label>
+		<input class="form-control" type="text" asp-for="Name" placeholder="" />
+
+		<label class="mt-4">Email</label>
+		<input class="form-control" type="text" asp-for="Email" />
+
+		<label class="mt-4">Role</label>
+		<select class="form-select" asp-for="Role">
+			<option value="">Select Role</option>
+			<option value="basic">Basic</option>
+			<option value="admin">Admin</option>
+		</select>
+
+		<label class="mt-4">Verified</label>
+		<select class="form-select" asp-for="Role">
+			<option value="unverified">Unverified</option>
+			<option value="verified">Verified</option>
+		</select>
+
+		<button class="btn btn-primary mt-4" type="submit">Submit</button>
+		<button class="btn btn-danger mt-4" type="submit" asp-action="DeleteUser" asp-controller="Users">Delete</button>
+	</form>
+}

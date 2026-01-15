@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "User List";
+}
+
+@model List<BasicCrudProject.Models.Entities.User>
+
+<h1>List of Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>ROLE</th>
+            <th>VERIFIED</th>
+            <th>ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>@user.Verified</td>
+                <td>
+                    <a class="btn btn-secondary" asp-controller="Users" asp-action="EditUser" asp-route-userId="@user.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
